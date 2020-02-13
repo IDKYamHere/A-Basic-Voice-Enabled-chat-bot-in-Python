@@ -1,2 +1,3 @@
 # NucoBot
-A chatbot which helps in lending loans and other services
+
+An AI powered Chatbot to take care of all your loan needs
