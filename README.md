@@ -1,6 +1,15 @@
    # A Basic Voice Enabled chat-bot in Python<br>
 
 Building a Voice Enabled chat-bot in Python 
+
+This project is a tutorial on how to build a chat-bot in python that recognizes speech in English.
+
+This project is done solely in Python and the commands are for Linux and Windows(Anaconda Prompt).
+
+Before diving into the implementation we need to install the requires libraries for this project.
+
+To install the required libraries run the following commands in your terminal : 
+
 ___
 
    ## How to Run :
@@ -9,17 +18,11 @@ ___
  
  For Linux Terminal : 
  
- ```pip install pyttsx3```
+ ```pip install -r requirement.txt``` 
  
- ```pip install wikipedia``` 
-  
- ```pip install SpeechRecognition``` 
-  
- ```pip install pygame``` 
-  
- ```pip install pyowm``` 
-  
- ```pip install pyttsx3```  
+ OR
+ 
+ ```pip3 install wikipedia``` 
  
  For Windows [Anaconda Prompt] : 
  
@@ -30,12 +33,5 @@ ___
 
 ****
 
-This project is a tutorial on how to build a chat-bot in python that recognizes speech in English.
-
-This project is done solely in Python and the commands are for Linux and Windows(Anaconda Prompt).
-
-Before diving into the implementation we need to install the requires libraries for this project.
-
-To install the required libraries run the following commands in your terminal : 
 
 
