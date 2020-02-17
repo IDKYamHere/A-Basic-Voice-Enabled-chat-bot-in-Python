@@ -1,11 +1,8 @@
-Rasa tutorial commands: 
+**Building a Voice Enabled chat-bot in Python**
 
-python -m pip install rasa ==x.x.x 
+This project is a tutorial on how to build a chat-bot in python that recognizes speech in English.
 
-python -m pip install -r alt_requirements/requirements_full.txt
+This project is done solely on Windows (Anaconda Propmt), the same commands can be used for Linux(terminal) too.
 
-python -m pip install rasa[spacy]
+Before diving into the implementation we need to install the requires libraries for this project.
 
-*OR*
-
-pip install rasa[mitie]
