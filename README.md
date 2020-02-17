@@ -8,8 +8,12 @@ Before diving into the implementation we need to install the requires libraries 
 
 To install the required libraries run the following commands in your terminal : 
 
-pip install pyttsx3
-pip install wikipedia
-pip install SpeechRecognition
-pip install pygame
-pip install pyown
+'''pip install pyttsx3'''
+
+'''pip install wikipedia'''  
+
+'''pip install SpeechRecognition'''
+
+'''pip install pygame'''
+
+'''pip install pyown'''
