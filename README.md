@@ -16,6 +16,8 @@ ___
    
  **Install dependencies by running**  
  
+ We need to install the following libraries : pyttsx3 | wikipedia | SpeechRecognition | pygame | pyown | pyaudio
+ 
  For Linux Terminal : 
  
  ```pip install -r requirement.txt``` 
