@@ -7,6 +7,10 @@ import wikipedia
 from pygame import mixer
 import speech_recognition as sr
 from speech_recognition.__main__ import r, audio
+#The below three lines are if you need to setup proxy for your system
+import os  
+os.environ["http_proxy"] = "http://<IP>:<port>"
+os.environ["https_proxy"] = "https://<IP>:<port>"
 
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -17,12 +21,12 @@ rate = engine.getProperty('rate')
 
 engine.setProperty('rate', rate - 25)
 
-greetings = ['hey there', 'hello', 'hi', 'Hai', 'hey!', 'hey']
+greetings = ['hey there', 'hello', 'hi', 'Hai', 'hey!', 'hey','Namaste']
 question = ['How are you?', 'How are you doing?']
 responses = ['Okay', "I'm fine"]
 var1 = ['who made you', 'who created you']
-var2 = ['I_was_created_by_Edward_right_in_his_computer.', 'Edward', 'Some_guy_whom_i_never_got_to_know.']
-var3 = ['what time is it', 'what is the time', 'time']
+var2 = ['I was virtually given birth by Siddhanth.', 'Siddhanth']
+var3 = ['what time is it', 'what is the time', 'time','tell me the time']
 var4 = ['who are you', 'what is you name']
 cmd1 = ['open browser', 'open google']
 cmd2 = ['play music', 'play songs', 'play a song', 'open music player']
@@ -61,7 +65,7 @@ while True:
         engine.runAndWait()
         print('I am fine')
     elif r.recognize_google(audio) in var1:
-        engine.say('I was made by edward')
+        engine.say('I was made by Siddhanth')
         engine.runAndWait()
         reply = random.choice(var2)
         print(reply)
@@ -73,15 +77,15 @@ while True:
         print(random.choice(colrep))
         engine.say(random.choice(colrep))
         engine.runAndWait()
-        print('It keeps changing every micro second')
-        engine.say('It keeps changing every micro second')
+        print('It keeps changing every second')
+        engine.say('It keeps changing every second')
         engine.runAndWait()
     elif r.recognize_google(audio) in cmd8:
         print(random.choice(colrep))
         engine.say(random.choice(colrep))
         engine.runAndWait()
-        print('It keeps changing every micro second')
-        engine.say('It keeps changing every micro second')
+        print('It keeps changing every second')
+        engine.say('It keeps changing every second')
         engine.runAndWait()
     elif r.recognize_google(audio) in cmd2:
         mixer.init()
