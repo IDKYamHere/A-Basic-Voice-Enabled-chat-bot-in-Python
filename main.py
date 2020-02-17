@@ -103,16 +103,18 @@ while True:
         exit()
     elif r.recognize_google(audio) in cmd5:
         owm = pyowm.OWM('YOUR_API_KEY')
-        observation = owm.weather_at_place('Bangalore, IN')
-        observation_list = owm.weather_around_coords(12.972442, 77.580643)
+        observation = owm.weather_at_place('Noida, IN')
+		#change name of the city and country to display temperature of your area : 
+		#observation = owm.weather_at_place('City, IN') [Country id: IN for India] 
+        observation_list = owm.weather_around_coords(28.627206, 77.371266) # change the cordinates by searching your cordinates on google maps
         w = observation.get_weather()
         w.get_wind()
         w.get_humidity()
-        w.get_temperature('celsius')
+        w.get_temperature('celsius') #you can change the reading to Celsius or Fahrenheit here  **change1**
         print(w)
         print(w.get_wind())
         print(w.get_humidity())
-        print(w.get_temperature('celsius'))
+        print(w.get_temperature('celsius')) # change temperature reading **change2**
         engine.say(w.get_wind())
         engine.runAndWait()
         engine.say('humidity')
@@ -121,16 +123,16 @@ while True:
         engine.runAndWait()
         engine.say('temperature')
         engine.runAndWait()
-        engine.say(w.get_temperature('celsius'))
+        engine.say(w.get_temperature('celsius')) # change temperature reading **change3**
         engine.runAndWait()
     elif r.recognize_google(audio) in var3:
 
         print("Current date and time : ")
-        print(now.strftime("The time is %H:%M"))
-        engine.say(now.strftime("The time is %H:%M"))
+        print(now.strftime("The time is %H:%M"))	 
+        engine.say(now.strftime("The time is %H:%M")) 
         engine.runAndWait()
     elif r.recognize_google(audio) in cmd1:
-        webbrowser.open('www.google.com')
+        webbrowser.open('www.google.com')	# change default search engine here
     elif r.recognize_google(audio) in cmd3:
         jokrep = random.choice(jokes)
         engine.say(jokrep)
