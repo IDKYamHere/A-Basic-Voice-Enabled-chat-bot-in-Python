@@ -11,7 +11,7 @@ ___
  
  ```pip install pyttsx3```
  
- ```'pip install wikipedia``` 
+ ```pip install wikipedia``` 
   
  ```pip install SpeechRecognition``` 
   
