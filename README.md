@@ -1,6 +1,6 @@
    # A Basic Voice Enabled chat-bot in Python<br>
 
-Building a Voice Enabled chat-bot in Python which basic tasts like telling you the weather in your area, lauches youtube/google on command and tells jokes.
+Building a Voice Enabled chat-bot in Python which does basic tasts like telling you the weather in your area, lauches google/youtube, tells jokes, etc.
 
 This project is a tutorial on how to build a chat-bot in python that recognizes speech in English only.
 
