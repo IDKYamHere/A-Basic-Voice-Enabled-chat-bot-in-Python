@@ -1,12 +1,12 @@
    # A Basic Voice Enabled chat-bot in Python<br>
 
-Building a Voice Enabled chat-bot in Python 
+Building a Voice Enabled chat-bot in Python which basic tasts like telling you the weather in your area, lauches youtube/google on command and tells jokes.
 
-This project is a tutorial on how to build a chat-bot in python that recognizes speech in English.
+This project is a tutorial on how to build a chat-bot in python that recognizes speech in English only.
 
 This project is done solely in Python and the commands are for Linux and Windows(Anaconda Prompt).
 
-Before diving into the implementation we need to install the requires libraries for this project.
+Before diving into the implementation we need to install the required libraries/modules for this project.
 
 To install the required libraries run the following commands in your terminal : 
 
