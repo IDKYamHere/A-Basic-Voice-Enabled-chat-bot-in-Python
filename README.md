@@ -16,7 +16,7 @@ ___
    
  **Install dependencies by running**  
  
- We need to install the following libraries : pyttsx3 | wikipedia | SpeechRecognition | pygame | pyown | pyaudio
+ We need to install the following libraries : **pyttsx3 | wikipedia | SpeechRecognition | pygame | pyown | pyaudio**
  
  We dont need to install them separately, instead install all of them collectively by running the following command :
  
@@ -26,7 +26,7 @@ ___
  
  OR
  
- ```pip3 install wikipedia``` 
+ ```pip3 install -r requirement.txt``` 
  
  For Windows [Anaconda Prompt] : 
  
