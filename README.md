@@ -34,6 +34,10 @@ ___
  
  ```python -m pip install -r requirements.txt``` 
  
+ **Running the main code**
+ 
+ ```python main.py```
+ 
 
 <br>
 
