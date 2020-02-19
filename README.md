@@ -18,6 +18,8 @@ ___
  
  We need to install the following libraries : **pyttsx3 | wikipedia | SpeechRecognition | pygame | pyown | pyaudio**
  
+ Since we are using microphone interface(input from the microphone), we will need to install pyaudio.
+ 
  We dont need to install them separately, instead install all of them collectively by running the following command :
  
  For Linux Terminal : 
