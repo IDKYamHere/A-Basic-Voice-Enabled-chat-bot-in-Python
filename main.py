@@ -21,10 +21,10 @@ rate = engine.getProperty('rate')
 
 engine.setProperty('rate', rate - 25)
 
-greetings = ['hey there', 'hello', 'hi', 'Hai', 'hey!', 'hey','Namaste']
+greetings = ['hey there', 'hello', 'hi', 'Hai', 'hey!', 'hey','Namaste','Good Morning','Good Afternoon','Good Evening']
 question = ['How are you?', 'How are you doing?']
 responses = ['Okay', "I'm fine"]
-var1 = ['who made you', 'who created you']
+var1 = ['who made you', 'who created you','who are you']
 var2 = ['I was virtually given birth by Siddhanth.', 'Siddhanth']
 var3 = ['what time is it', 'what is the time', 'time','tell me the time']
 var4 = ['who are you', 'what is you name']
