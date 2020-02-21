@@ -43,5 +43,9 @@ ___
 
 ****
 
+Make sure your audio device is setup right. 
+
+Try to record an audio note using your system's audio recorder to test if your input device is connected and running. The Bot will not warn/show errors if it isnt able to detect any sound, it will only say : 
+
 
 
