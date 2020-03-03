@@ -1,147 +1,103 @@
-#test1
-import random
-import datetime
-import webbrowser
-import pyttsx3
-import wikipedia
-from pygame import mixer
-import speech_recognition as sr
-from speech_recognition.__main__ import r, audio
-#The below three lines are if you need to setup proxy for your system
-import os  
-os.environ["http_proxy"] = "http://<IP>:<port>"
-os.environ["https_proxy"] = "https://<IP>:<port>"
+import aiml
+import os
+import time
+import argparse
+import sys
 
-engine = pyttsx3.init()
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)
-volume = engine.getProperty('volume')
-engine.setProperty('volume', 10.0)
-rate = engine.getProperty('rate')
+mode = "text"
+voice = "pyttsx"
+terminate = ['bye', 'buy', 'shutdown', 'exit', 'quit', 'gotosleep', 'goodbye']
 
-engine.setProperty('rate', rate - 25)
 
-greetings = ['hey there', 'hello', 'hi', 'Hai', 'hey!', 'hey','Namaste','Good Morning','Good Afternoon','Good Evening']
-question = ['How are you?', 'How are you doing?']
-responses = ['Okay', "I'm fine"]
-var1 = ['who made you', 'who created you','who are you']
-var2 = ['I was virtually given birth by Siddhanth.', 'Siddhanth']
-var3 = ['what time is it', 'what is the time', 'time','tell me the time']
-var4 = ['who are you', 'what is you name']
-cmd1 = ['open browser', 'open google']
-cmd2 = ['play music', 'play songs', 'play a song', 'open music player']
-cmd3 = ['tell a joke', 'tell me a joke', 'say something funny', 'tell something funny']
-jokes = ['Can a kangaroo jump higher than a house? Of course, a house doesn’t jump at all.', 'My dog used to chase people on a bike a lot. It got so bad, finally I had to take his bike away.', 'Doctor: Im sorry but you suffer from a terminal illness and have only 10 to live.Patient: What do you mean, 10? 10 what? Months? Weeks?!"Doctor: Nine.']
-cmd4 = ['open youtube', 'i want to watch a video']
-cmd5 = ['tell me the weather', 'weather', 'what about the weather']
-cmd6 = ['exit', 'close', 'goodbye', 'nothing']
-cmd7 = ['what is your color', 'what is your colour', 'your color', 'your color?']
-colrep = ['Right now its rainbow', 'Right now its transparent', 'Right now its non chromatic']
-cmd8 = ['what is you favourite colour', 'what is your favourite color']
-cmd9 = ['thank you']
+def get_arguments():
+    parser = argparse.ArgumentParser()
+    optional = parser.add_argument_group('params')
+    optional.add_argument('-v', '--voice', action='store_true', required=False,
+                          help='Enable voice mode')
+    optional.add_argument('-g', '--gtts', action='store_true', required=False,
+                          help='Enable Google Text To Speech engine')
+    arguments = parser.parse_args()
+    return arguments
 
-repfr9 = ['youre welcome', 'glad i could help you']
 
-while True:
-    now = datetime.datetime.now()
+def gtts_speak(jarvis_speech):
+    tts = gTTS(text=jarvis_speech, lang='en')
+    tts.save('jarvis_speech.mp3')
+    mixer.init()
+    mixer.music.load('jarvis_speech.mp3')
+    mixer.music.play()
+    while mixer.music.get_busy():
+        time.sleep(1)
+
+
+def offline_speak(jarvis_speech):
+    engine = pyttsx.init()
+    engine.say(jarvis_speech)
+    engine.runAndWait()
+
+
+def speak(jarvis_speech):
+    if voice == "gTTS":
+        gtts_speak(jarvis_speech)
+    else:
+        offline_speak(jarvis_speech)
+
+
+def listen():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        print("Tell me something:")
-        audio = r.listen(source)
+        print("Talk to Bot: ")
+        audio = r.listen(source,timeout=1,phrase_time_limit=5)
+    try:
+        print r.recognize_google(audio)
+        return r.recognize_google(audio)
+    except sr.UnknownValueError:
+        speak(
+            "I couldn't understand what you said! Would you like to repeat?")
+        return(listen())
+    except sr.RequestError as e:
+        print("Could not request results from " +
+              "Google Speech Recognition service; {0}".format(e))
+
+
+if __name__ == '__main__':
+    args = get_arguments()
+
+    if (args.voice):
         try:
-            print("You said:- " + r.recognize_google(audio))
-        except sr.UnknownValueError:
-            print("Could not understand audio")
-            engine.say('I didnt get that. Rerun the code')
-
-            engine.runAndWait()
-    if r.recognize_google(audio) in greetings:
-        random_greeting = random.choice(greetings)
-        print(random_greeting)
-        engine.say(random_greeting)
-        engine.runAndWait()
-    elif r.recognize_google(audio) in question:
-        engine.say('I am fine')
-        engine.runAndWait()
-        print('I am fine')
-    elif r.recognize_google(audio) in var1:
-        engine.say('I was made by Siddhanth')
-        engine.runAndWait()
-        reply = random.choice(var2)
-        print(reply)
-    elif r.recognize_google(audio) in cmd9:
-        print(random.choice(repfr9))
-        engine.say(random.choice(repfr9))
-        engine.runAndWait()
-    elif r.recognize_google(audio) in cmd7:
-        print(random.choice(colrep))
-        engine.say(random.choice(colrep))
-        engine.runAndWait()
-        print('It keeps changing every second')
-        engine.say('It keeps changing every second')
-        engine.runAndWait()
-    elif r.recognize_google(audio) in cmd8:
-        print(random.choice(colrep))
-        engine.say(random.choice(colrep))
-        engine.runAndWait()
-        print('It keeps changing every second')
-        engine.say('It keeps changing every second')
-        engine.runAndWait()
-    elif r.recognize_google(audio) in cmd2:
-        mixer.init()
-        mixer.music.load("song.wav")
-        mixer.music.play()
-    elif r.recognize_google(audio) in var4:
-        engine.say('I am a bot, silly')
-        engine.runAndWait()
-    elif r.recognize_google(audio) in cmd4:
-        webbrowser.open('www.youtube.com')
-    elif r.recognize_google(audio) in cmd6:
-        print('see you later')
-        engine.say('see you later')
-        engine.runAndWait()
-        exit()
-    elif r.recognize_google(audio) in cmd5:
-        owm = pyowm.OWM('YOUR_API_KEY')
-        observation = owm.weather_at_place('Noida, IN')
-		#change name of the city and country to display temperature of your area : 
-		#observation = owm.weather_at_place('City, IN') [Country id: IN for India] 
-        observation_list = owm.weather_around_coords(28.627206, 77.371266) # change the cordinates by searching your cordinates on google maps
-        w = observation.get_weather()
-        w.get_wind()
-        w.get_humidity()
-        w.get_temperature('celsius') #you can change the reading to Celsius or Fahrenheit here  **change1**
-        print(w)
-        print(w.get_wind())
-        print(w.get_humidity())
-        print(w.get_temperature('celsius')) # change temperature reading **change2**
-        engine.say(w.get_wind())
-        engine.runAndWait()
-        engine.say('humidity')
-        engine.runAndWait()
-        engine.say(w.get_humidity())
-        engine.runAndWait()
-        engine.say('temperature')
-        engine.runAndWait()
-        engine.say(w.get_temperature('celsius')) # change temperature reading **change3**
-        engine.runAndWait()
-    elif r.recognize_google(audio) in var3:
-
-        print("Current date and time : ")
-        print(now.strftime("The time is %H:%M"))	 
-        engine.say(now.strftime("The time is %H:%M")) 
-        engine.runAndWait()
-    elif r.recognize_google(audio) in cmd1:
-        webbrowser.open('www.google.com')	# change default search engine here
-    elif r.recognize_google(audio) in cmd3:
-        jokrep = random.choice(jokes)
-        engine.say(jokrep)
-        engine.runAndWait()
+            import speech_recognition as sr
+            mode = "voice"
+        except ImportError:
+            print("\nInstall SpeechRecognition to use this feature." +
+                  "\nStarting text mode\n")
+    if (args.gtts):
+        try:
+            from gtts import gTTS
+            from pygame import mixer
+            voice = "gTTS"
+        except ImportError:
+            import pyttsx
+            print("\nInstall gTTS and pygame to use this feature." +
+                  "\nUsing pyttsx\n")
     else:
-        engine.say("please wait")
-        engine.runAndWait()
-        print(wikipedia.summary(r.recognize_google(audio)))
-        engine.say(wikipedia.summary(r.recognize_google(audio)))
-        engine.runAndWait()
-        userInput3 = input("or else search in google")
-        webbrowser.open_new('www.google.com/search?q=' + userInput3)
+        import pyttsx
+
+    kernel = aiml.Kernel()
+
+    if os.path.isfile("bot_brain.brn"):
+        kernel.bootstrap(brainFile="bot_brain.brn")
+    else:
+        kernel.bootstrap(learnFiles="std-startup.xml", commands="load aiml b")
+        # kernel.saveBrain("bot_brain.brn")
+
+    # kernel now ready for use
+    while True:
+        if mode == "voice":
+            response = listen()
+        else:
+            response = raw_input("Talk to Bot : ")
+        if response.lower().replace(" ", "") in terminate:
+            break
+        jarvis_speech = kernel.respond(response)
+        print "Bot: " + jarvis_speech
+        speak(jarvis_speech)
