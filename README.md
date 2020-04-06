@@ -16,30 +16,16 @@ ___
 
    ## How to Run :
    
- **Install dependencies by running**  
- 
- We need to install the following libraries : **pyttsx3 | wikipedia | SpeechRecognition | pygame | pyown | pyaudio**
- 
- Since we are using microphone interface(input from the microphone), we will need to install pyaudio.
- 
- We dont need to install them separately, instead install all of them collectively by running the following command :
- 
- For Linux Terminal : 
- 
- ```pip install -r requirement.txt``` 
- 
- OR
- 
- ```pip3 install -r requirement.txt``` 
- 
- For Windows [Anaconda Prompt] : 
- 
- ```python -m pip install -r requirements.txt``` 
- 
- **Running the main code**
- 
- ```python main.py```
- 
+Run the following commands in three different terminals :
+   
+*Terminal 1 :*
+```rasa run -m models --endpoints endpoints.yml --port 5002 --credentials credentials.yml```
+
+*Terminal 2 :*
+```rasa run actions```
+
+*Terminal 3 :*
+```python Voice_bot.py```
 
 <br>
 
