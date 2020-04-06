@@ -4,7 +4,7 @@
 
 Building a Voice Enabled chat-bot in Python which does basic tasts like telling you the weather in your area, lauches google/youtube, tells jokes, etc.
 
-This project is a tutorial on how to build a chat-bot in python that recognizes speech in English only.
+This project is a tutorial on how to build a chat-bot in python that recognizes speech in English only with the help of **Rasa**.
 
 This project is done solely in Python and the commands are for Linux and Windows(Anaconda Prompt).
 
@@ -16,6 +16,7 @@ ___
 
    ## How to Run :
    
+
 Run the following commands in three different terminals :
    
 *Terminal 1 :*
