@@ -26,7 +26,7 @@ myobj.save("welcome.mp3")
 print('saved')
 # Playing the converted file
 #playsound('/path/to/a/sound/file/you/want/to/play.mp3')
-playsound('C:/Users/siddu/Desktop/b/welcome.mp3')
+#playsound('C:/Users/siddu/Desktop/b/welcome.mp3')
 #subprocess.call(['mpg321', "welcome.mp3", '--play-and-exit'])
  	
 while bot_message != "Bye" or bot_message!='thanks':
@@ -56,5 +56,5 @@ while bot_message != "Bye" or bot_message!='thanks':
     myobj.save("welcome.mp3")
     print('saved')
     # Playing the converted file
-    playsound('C:/Users/siddu/Desktop/b/welcome.mp3')
+    #playsound('C:/Users/siddu/Desktop/b/welcome.mp3')
     #subprocess.call(['mpg321', "welcome.mp3", '--play-and-exit'])
